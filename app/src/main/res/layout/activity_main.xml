@@ -15,6 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Rua. rua ABC"
+            style="@style/MyFoodButtonStyle"
             android:drawableEnd="@drawable/ic_arrow_down"
             android:textSize="13sp"/>
         <ImageView
