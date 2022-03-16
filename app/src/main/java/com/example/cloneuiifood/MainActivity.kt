@@ -1,7 +1,7 @@
 package com.example.cloneuiifood
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
 class TabViewPagerAdapter(fa : FragmentActivity) : FragmentStateAdapter(fa){
 
     val tabs = arrayOf(R.string.restaurants, R.string.marketplaces, R.string.drinks)
-    val fragments = arrayOf(MarketPlaceFragment(), MarketPlaceFragment(), MarketPlaceFragment())
+    val fragments = arrayOf(RestaurantFragment(), MarketPlaceFragment(), MarketPlaceFragment())
 
     override fun getItemCount() = fragments.size
 
@@ -48,4 +48,4 @@ class TabViewPagerAdapter(fa : FragmentActivity) : FragmentStateAdapter(fa){
     }
 }
 
-class MarketPlaceFragment : Fragment(){}
+class MarketPlaceFragment : Fragment()
