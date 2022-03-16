@@ -12,33 +12,35 @@
         android:layout_height="wrap_content">
 
         <Button
+            style="@style/MyFoodButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Rua. rua ABC"
-            style="@style/MyFoodButtonStyle"
             android:drawableEnd="@drawable/ic_arrow_down"
-            android:textSize="13sp"/>
+            android:text="Rua. rua ABC"
+            android:textSize="13sp" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_qr_code_scanner"
             android:layout_gravity="end"
-            android:paddingHorizontal="16dp"/>
+            android:paddingHorizontal="16dp"
+            android:src="@drawable/ic_qr_code_scanner" />
     </androidx.appcompat.widget.Toolbar>
 
     <com.google.android.material.tabs.TabLayout
+        android:id="@+id/add_tab"
+        app:tabTextAppearance="@style/MyFoodTabLayoutTextAppearance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:tabMode="auto"
+        app:tabIndicatorColor="@color/red"
         app:tabIndicatorFullWidth="false"
         app:tabIndicatorHeight="1dp"
-        app:tabSelectedTextColor="@color/red"
-        app:tabIndicatorColor="@color/red"
-        android:id="@+id/add_tab"/>
+        app:tabMode="auto"
+        app:tabSelectedTextColor="@color/red" />
 
     <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/add_view_pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/add_view_pager"/>
+        android:layout_height="match_parent" />
 
 </LinearLayout>

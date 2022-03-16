@@ -14,5 +14,8 @@
         <!-- Changing colors of status bar elements -->
         <item name="android:windowLightStatusBar" tools:targetApi="23">true</item>
         <!-- Customize your theme here. -->
+
+        <item name="buttonStyle">@style/MyFoodButtonStyle</item>
+        <item name="android:textViewStyle">@style/MyFoodTextViewStyle</item>
     </style>
 </resources>
