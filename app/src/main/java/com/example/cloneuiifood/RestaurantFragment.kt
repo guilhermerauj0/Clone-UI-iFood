@@ -29,7 +29,11 @@ class RestaurantFragment : Fragment(R.layout.fragment_restaurant) {
 
         categoryAdapter.items = arrayListOf(
             Category(1, "https://www.ifood.com.br/static/images/categories/market.png", "Mercado", 0xFFB6D048),
-            Category(2, "https://www.ifood.com.br/static/images/categories/restaurant.png", "Mercado", 0xFFE91D2D)
+            Category(2, "https://www.ifood.com.br/static/images/categories/restaurant.png", "Restaurantes", 0xFFE91D2D),
+            Category(3, "https://www.ifood.com.br/static/images/categories/drinks.png", "Bebidas", 0xFFF6D553),
+            Category(4, "https://static-images.ifood.com.br/image/upload/f_auto/webapp/landingV2/express.png", "Express", 0xFFFF0000),
+            Category(5, "https://parceiros.ifood.com.br/static/media/salad.9db040c0.png", "Saudável", 0xFFE91D2D),
+            Category(6, "https://www.ifood.com.br/static/images/categories/restaurant.png", "Salgados", 0xFF8C60C5),
 
         )
 

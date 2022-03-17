@@ -5,13 +5,22 @@
     android:paddingHorizontal="8dp"
     android:layout_height="wrap_content">
 
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/bg_category"
+        app:layout_constraintBottom_toTopOf="@+id/txt_category"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintDimensionRatio="21:9"
+        android:background="#FF00"/>
+
     <ImageView
         android:id="@+id/img_category"
         android:layout_width="80dp"
         android:layout_height="82dp"
         app:layout_constraintBottom_toTopOf="@+id/txt_category"
         app:layout_constraintEnd_toEndOf="parent"
-        android:src="@color/red"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
