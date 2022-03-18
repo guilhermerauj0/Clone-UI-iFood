@@ -12,8 +12,7 @@
         app:layout_constraintBottom_toTopOf="@+id/txt_category"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintDimensionRatio="21:9"
-        android:background="#FF00"/>
+        app:layout_constraintDimensionRatio="21:9" />
 
     <ImageView
         android:id="@+id/img_category"

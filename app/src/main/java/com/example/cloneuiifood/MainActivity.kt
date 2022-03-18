@@ -28,6 +28,10 @@ class MainActivity : AppCompatActivity() {
         val adapter = TabViewPagerAdapter(this)
         viewPager.adapter = adapter
 
+        // REMOVING SCROLL LATERAL
+        viewPager.isUserInputEnabled = false
+
+
         TabLayoutMediator(tabLayout, viewPager) {
             tab, position -> tab.text = getString(adapter.tabs[position])
         }.attach()

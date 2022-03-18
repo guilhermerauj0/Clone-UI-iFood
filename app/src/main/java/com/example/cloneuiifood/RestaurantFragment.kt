@@ -12,6 +12,7 @@ class RestaurantFragment : Fragment(R.layout.fragment_restaurant) {
     private lateinit var binding: FragmentRestaurantBinding
 
     private val categoryAdapter = ATAdapter({ CategoryView(it) })
+    private val bannerAdapter = ATAdapter({ BannerView(it) })
 
     private var filters = arrayOf(
         FilterItem(1, "Ordenar", closeIcon = R.drawable.ic_arrow_down),
@@ -34,8 +35,14 @@ class RestaurantFragment : Fragment(R.layout.fragment_restaurant) {
             Category(4, "https://static-images.ifood.com.br/image/upload/f_auto/webapp/landingV2/express.png", "Express", 0xFFFF0000),
             Category(5, "https://parceiros.ifood.com.br/static/media/salad.9db040c0.png", "Saudável", 0xFFE91D2D),
             Category(6, "https://www.ifood.com.br/static/images/categories/restaurant.png", "Salgados", 0xFF8C60C5),
-
         )
+
+        bannerAdapter.items = arrayListOf(
+            Banner(1, "https://static-images.ifood.com.br/image/upload/t_high,q_100/webapp/landing/landing-banner-1.png"),
+            Banner(2, "https://static-images.ifood.com.br/image/upload/t_high,q_100/webapp/landing/landing-banner-2.png"),
+            Banner(3, "https://static-images.ifood.com.br/image/upload/t_high,q_100/webapp/landing/landing-banner-3.png")
+        )
+
 
         // NO LUGAR DO setContentView, USA-SE:
         binding = FragmentRestaurantBinding.bind(view)
@@ -43,6 +50,9 @@ class RestaurantFragment : Fragment(R.layout.fragment_restaurant) {
         binding.let {
             it.rvCategory.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             it.rvCategory.adapter = categoryAdapter
+
+            it.rvBanners.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            it.rvBanners.adapter = bannerAdapter
 
             filters.forEach { filter ->
                 it.chipGroupFilter.addView(filter.toChip(requireContext()))
