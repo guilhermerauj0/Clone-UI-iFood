@@ -33,11 +33,11 @@ fun FilterItem.toChip(context: Context): Chip {
     chip.setChipStrokeColorResource(R.color.gray)
     chip.chipStrokeWidth = 2f
 
-    if(icon != null){
+    if (icon != null) {
         chip.chipIconSize = iconSize
         chip.setChipIconResource(icon)
         chip.chipStartPadding = 20f
-    }else{
+    } else {
         chip.chipIcon = null
     }
     closeIcon?.let {

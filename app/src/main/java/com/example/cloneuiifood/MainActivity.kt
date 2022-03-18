@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         setupView()
     }
 
-    private fun setupView(){
+    private fun setupView() {
         val tabLayout = binding.addTab
         val viewPager = binding.addViewPager
 
@@ -32,15 +32,15 @@ class MainActivity : AppCompatActivity() {
         viewPager.isUserInputEnabled = false
 
 
-        TabLayoutMediator(tabLayout, viewPager) {
-            tab, position -> tab.text = getString(adapter.tabs[position])
+        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+            tab.text = getString(adapter.tabs[position])
         }.attach()
 
     }
 }
 
 // LISTA DE FRAGMENTOS ESPECIFICOS
-class TabViewPagerAdapter(fa : FragmentActivity) : FragmentStateAdapter(fa){
+class TabViewPagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
 
     val tabs = arrayOf(R.string.restaurants, R.string.marketplaces, R.string.drinks)
     val fragments = arrayOf(RestaurantFragment(), MarketPlaceFragment(), MarketPlaceFragment())

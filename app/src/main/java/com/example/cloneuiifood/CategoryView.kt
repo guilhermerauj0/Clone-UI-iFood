@@ -6,9 +6,8 @@ import co.tiagoaguiar.atway.ui.adapter.ATViewHolder
 import com.example.cloneuiifood.databinding.CategoryItemBinding
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
-import java.lang.Exception
 
-class CategoryView(viewGroup: ViewGroup): ATViewHolder<Category, CategoryItemBinding>(
+class CategoryView(viewGroup: ViewGroup) : ATViewHolder<Category, CategoryItemBinding>(
     CategoryItemBinding::inflate,
     viewGroup
 ) {
@@ -18,7 +17,7 @@ class CategoryView(viewGroup: ViewGroup): ATViewHolder<Category, CategoryItemBin
 
         Picasso.get()
             .load(item.logoUrl)
-            .into(binding.imgCategory, object : Callback{
+            .into(binding.imgCategory, object : Callback {
                 override fun onSuccess() {
                     val shape = GradientDrawable()
                     shape.cornerRadius = 10f

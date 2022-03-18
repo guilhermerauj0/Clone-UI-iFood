@@ -5,38 +5,38 @@
     android:orientation="vertical">
 
     <HorizontalScrollView
-        android:paddingHorizontal="8dp"
-        android:paddingVertical="12dp"
-        android:clipToPadding="false"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="12dp">
 
         <com.google.android.material.chip.ChipGroup
             android:id="@+id/chip_group_filter"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
     </HorizontalScrollView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_category"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_banners"
-        android:clipToPadding="false"
-        android:paddingHorizontal="6dp"
-        android:layout_marginTop="12dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:clipToPadding="false"
+        android:paddingHorizontal="6dp" />
 
     <LinearLayout
         android:id="@+id/dots"
-        android:orientation="horizontal"
-        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal" />
 
 
 </LinearLayout>
