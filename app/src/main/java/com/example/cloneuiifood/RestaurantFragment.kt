@@ -2,8 +2,13 @@ package com.example.cloneuiifood
 
 import android.os.Bundle
 import android.view.View
+import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearSnapHelper
+import androidx.recyclerview.widget.RecyclerView
 import co.tiagoaguiar.atway.ui.adapter.ATAdapter
 import com.example.cloneuiifood.databinding.FragmentRestaurantBinding
 
@@ -54,11 +59,52 @@ class RestaurantFragment : Fragment(R.layout.fragment_restaurant) {
             it.rvBanners.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             it.rvBanners.adapter = bannerAdapter
 
+            // SYNC DOTS COM OS BANNERS
+            it.rvBanners.addOnScrollListener(object : RecyclerView.OnScrollListener(){
+                override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                    if(newState == RecyclerView.SCROLL_STATE_IDLE){ // SE ESTÁ EM ESTADO OCIOSO
+                        notifyPositionChanged(recyclerView)
+
+                    }
+                }
+            })
+
+            addDots(it.dots, bannerAdapter.items.size, 0)
+
             filters.forEach { filter ->
                 it.chipGroupFilter.addView(filter.toChip(requireContext()))
             }
         }
+    }
+    private var position: Int? = RecyclerView.NO_POSITION
+    private val snapHelper = LinearSnapHelper() // FUNÇÃO DE DESCOBRIR QUAL POSIÇÃO A RECYCLER VIEW ESTÁ
 
+    private fun notifyPositionChanged(recyclerView: RecyclerView) {
+        val layoutManager = recyclerView.layoutManager
+        val view = snapHelper.findSnapView(layoutManager)
+        val position = if(view == null) RecyclerView.NO_POSITION else layoutManager?.getPosition(view)
+
+        val positionChanged = this.position != position
+        if(positionChanged){
+            addDots(binding!!.dots, bannerAdapter.items.size, position ?: 0)
+        }
+        this.position = position
+    }
+
+    private fun addDots(container:LinearLayout, size: Int, position: Int){
+        container.removeAllViews()
+
+        Array(size){
+            val textView = TextView(context).apply {
+                text = getString(R.string.dotted)
+                textSize = 20f
+                setTextColor(
+                    if(position == it) ContextCompat.getColor(context, android.R.color.black)
+                    else ContextCompat.getColor(context, android.R.color.darker_gray)
+                )
+            }
+            container.addView(textView)
+        }
     }
 
 
