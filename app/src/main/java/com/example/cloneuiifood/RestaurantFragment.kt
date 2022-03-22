@@ -18,6 +18,7 @@ class RestaurantFragment : Fragment(R.layout.fragment_restaurant) {
 
     private val categoryAdapter = ATAdapter({ CategoryView(it) })
     private val bannerAdapter = ATAdapter({ BannerView(it) })
+    private val shopAdapter = ATAdapter({ShopView(it)})
 
     private var filters = arrayOf(
         FilterItem(1, "Ordenar", closeIcon = R.drawable.ic_arrow_down),
@@ -87,6 +88,15 @@ class RestaurantFragment : Fragment(R.layout.fragment_restaurant) {
             )
         )
 
+        shopAdapter.items = arrayListOf(
+            Shop(1, "https://static-imagem.ifood.com.br/image/upload/t_high/logosgde/46ebd05c-116e-41cd-b3de-7a05c5bc730a/201811071958_30656.jpg", "Pizza Crek"),
+            Shop(2, "https://static-imagem.ifood.com.br/image/upload/t_high/logosgde/46ebd05c-116e-41cd-b3de-7a05c5bc730a/201811071958_30656.jpg", "Fábrica de Esfiha"),
+            Shop(3, "https://static-imagem.ifood.com.br/image/upload/t_high/logosgde/46ebd05c-116e-41cd-b3de-7a05c5bc730a/201811071958_30656.jpg", "Pecorino"),
+            Shop(4, "https://static-imagem.ifood.com.br/image/upload/t_high/logosgde/46ebd05c-116e-41cd-b3de-7a05c5bc730a/201811071958_30656.jpg", "Barbacoa Grill"),
+            Shop(5, "https://static-imagem.ifood.com.br/image/upload/t_high/logosgde/46ebd05c-116e-41cd-b3de-7a05c5bc730a/201811071958_30656.jpg", "Bolo de Madre"),
+            Shop(6, "https://static-imagem.ifood.com.br/image/upload/t_high/logosgde/46ebd05c-116e-41cd-b3de-7a05c5bc730a/201811071958_30656.jpg", "Uau Esfiha"),
+            Shop(7, "https://static-imagem.ifood.com.br/image/upload/t_high/logosgde/46ebd05c-116e-41cd-b3de-7a05c5bc730a/201811071958_30656.jpg", "Bar do Juarez"),
+        )
 
         // NO LUGAR DO setContentView, USA-SE:
         binding = FragmentRestaurantBinding.bind(view)
@@ -99,6 +109,11 @@ class RestaurantFragment : Fragment(R.layout.fragment_restaurant) {
             it.rvBanners.layoutManager =
                 LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             it.rvBanners.adapter = bannerAdapter
+
+
+            it.rvShops.layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            it.rvShops.adapter = shopAdapter
 
             // SYNC DOTS COM OS BANNERS
             it.rvBanners.addOnScrollListener(object : RecyclerView.OnScrollListener() {
