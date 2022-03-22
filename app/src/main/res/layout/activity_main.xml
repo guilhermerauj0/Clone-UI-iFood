@@ -1,46 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.Toolbar
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
 
-        <Button
-            style="@style/MyFoodButtonStyle"
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                style="@style/MyFoodButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_arrow_down"
+                android:text="Rua. rua ABC"
+                android:textSize="13sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:paddingHorizontal="16dp"
+                android:src="@drawable/ic_qr_code_scanner" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/add_tab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableEnd="@drawable/ic_arrow_down"
-            android:text="Rua. rua ABC"
-            android:textSize="13sp" />
+            app:tabIndicatorColor="@color/red"
+            app:tabIndicatorFullWidth="false"
+            app:tabIndicatorHeight="1dp"
+            app:tabMode="auto"
+            app:tabSelectedTextColor="@color/red"
+            app:tabTextAppearance="@style/MyFoodTabLayoutTextAppearance" />
 
-        <ImageView
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/add_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_gravity="bottom"
+        app:contentPadding="15dp"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="4dp">
+
+        <TextView
+            android:text="@string/explore_more"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:paddingHorizontal="16dp"
-            android:src="@drawable/ic_qr_code_scanner" />
-    </androidx.appcompat.widget.Toolbar>
+            android:layout_gravity="center|top"/>
+        <TextView
+            android:text="@string/enter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|bottom"
+            android:textColor="@color/red"/>
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/add_tab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:tabIndicatorColor="@color/red"
-        app:tabIndicatorFullWidth="false"
-        app:tabIndicatorHeight="1dp"
-        app:tabMode="auto"
-        app:tabSelectedTextColor="@color/red"
-        app:tabTextAppearance="@style/MyFoodTabLayoutTextAppearance" />
+    </androidx.cardview.widget.CardView>
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/add_view_pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+</FrameLayout>
 
-</LinearLayout>
