@@ -19,6 +19,7 @@ class RestaurantFragment : Fragment(R.layout.fragment_restaurant) {
     private val categoryAdapter = ATAdapter({ CategoryView(it) })
     private val bannerAdapter = ATAdapter({ BannerView(it) })
     private val shopAdapter = ATAdapter({ShopView(it)})
+    private val moreShopAdapter = ATAdapter({MoreShopView(it)})
 
     private var filters = arrayOf(
         FilterItem(1, "Ordenar", closeIcon = R.drawable.ic_arrow_down),
@@ -98,6 +99,16 @@ class RestaurantFragment : Fragment(R.layout.fragment_restaurant) {
             Shop(7, "https://static-imagem.ifood.com.br/image/upload/t_high/logosgde/46ebd05c-116e-41cd-b3de-7a05c5bc730a/201811071958_30656.jpg", "Bar do Juarez"),
         )
 
+        moreShopAdapter.items = arrayListOf(
+            MoreShop(1, "https://static-imagem.ifood.com.br/image/upload/t_high/logosgde/46ebd05c-116e-41cd-b3de-7a05c5bc730a/201811071958_30656.jpg", "Pizza Crek", 4.4, "Pizza", 11.2, "60-70", 26.00),
+            MoreShop(2, "https://static-imagem.ifood.com.br/image/upload/t_high/logosgde/46ebd05c-116e-41cd-b3de-7a05c5bc730a/201811071958_30656.jpg", "Pizza Crek", 4.4, "Pizza", 11.2, "60-70", 22.00),
+            MoreShop(3, "https://static-imagem.ifood.com.br/image/upload/t_high/logosgde/46ebd05c-116e-41cd-b3de-7a05c5bc730a/201811071958_30656.jpg", "Pizza Crek", 4.4, "Pizza", 11.2, "60-70", 12.00),
+            MoreShop(4, "https://static-imagem.ifood.com.br/image/upload/t_high/logosgde/46ebd05c-116e-41cd-b3de-7a05c5bc730a/201811071958_30656.jpg", "Pizza Crek", 4.4, "Pizza", 11.2, "60-70", 56.00),
+            MoreShop(5, "https://static-imagem.ifood.com.br/image/upload/t_high/logosgde/46ebd05c-116e-41cd-b3de-7a05c5bc730a/201811071958_30656.jpg", "Pizza Crek", 4.4, "Pizza", 11.2, "60-70", 31.00),
+            MoreShop(6, "https://static-imagem.ifood.com.br/image/upload/t_high/logosgde/46ebd05c-116e-41cd-b3de-7a05c5bc730a/201811071958_30656.jpg", "Pizza Crek", 4.4, "Pizza", 11.2, "60-70", 10.00),
+            MoreShop(7, "https://static-imagem.ifood.com.br/image/upload/t_high/logosgde/46ebd05c-116e-41cd-b3de-7a05c5bc730a/201811071958_30656.jpg", "Pizza Crek", 4.4, "Pizza", 11.2, "60-70", 9.00),
+        )
+
         // NO LUGAR DO setContentView, USA-SE:
         binding = FragmentRestaurantBinding.bind(view)
 
@@ -114,6 +125,9 @@ class RestaurantFragment : Fragment(R.layout.fragment_restaurant) {
             it.rvShops.layoutManager =
                 LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             it.rvShops.adapter = shopAdapter
+
+            it.rvMoreShops.layoutManager = LinearLayoutManager(requireContext())
+            it.rvMoreShops.adapter = moreShopAdapter
 
             // SYNC DOTS COM OS BANNERS
             it.rvBanners.addOnScrollListener(object : RecyclerView.OnScrollListener() {
